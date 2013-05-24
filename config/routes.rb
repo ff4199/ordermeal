@@ -1,7 +1,11 @@
 Ordermeal::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
   
   match '/signup',to:'users#new'
+  match '/signup',to:'static_pages#home'
+  match '/signin',to:'sessions#new'
 
 
   match '/',    to: 'static_pages#home'
