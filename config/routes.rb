@@ -3,9 +3,9 @@ Ordermeal::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   
-  match '/signup',to:'users#new'
-  match '/signup',to:'static_pages#home'
-  match '/signin',to:'sessions#new'
+  match '/signup', to: 'users#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
 
   match '/',    to: 'static_pages#home'

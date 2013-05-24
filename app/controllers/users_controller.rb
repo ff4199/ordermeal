@@ -3,8 +3,12 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+  before_filter :signed_in_user, only: [:index,:edit, :update,:destroy]
+  before_filter :correct_user,   only: [:edit, :update]
+   before_filter :admin_user,     only: :destroy
+  
   def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -37,6 +41,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    
   end
 
   # POST /users
@@ -64,6 +69,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
+        flash[:success] = "更新个人资料成功"
+        sign_in @user
+        redirect_to @user
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
@@ -84,4 +92,23 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+
+ private
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_path, notice: "Please sign in."
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user?(@user)
+    end
+    
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
 end
