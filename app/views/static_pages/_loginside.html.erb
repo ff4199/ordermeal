@@ -1,19 +1,27 @@
-<% provide(:title, "登    录") %>
-<h1>登    录</h1>
+<div class="span4">
+
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span3">
     <%= form_for(:session, url: sessions_path) do |f| %>
 
-      <%= f.label "邮箱" %>
+      <%= f.label "注册邮箱" %>
       <%= f.text_field :email %>
 
       <%= f.label "密码" %>
       <%= f.password_field :password %>
 
-      <%= f.submit "登录", class: "btn btn-large btn-primary" %>
-    <% end %>
-
-    <p>还没注册？ <%= link_to "马上去注册", signup_path %></p>
+      
   </div>
+  <div class="span3">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= f.submit "登录", class: "btn btn-large btn-primary" %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+    <% end %>
+    <%=render "users/form"%>
+  </div>
+ 
+</div>
+
 </div>

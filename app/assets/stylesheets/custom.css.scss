@@ -8,10 +8,18 @@ $grayMediumLight: #eaeaea;
 
 html {
   overflow-y: scroll;
+  
+}
+.bodystyle{
+  background-image:url("c.jpg");
+  background-position:center;
+  
 }
 
 body {
   padding-top: 60px;
+  
+
 }
 
 section {
@@ -189,6 +197,22 @@ input, textarea, select, .uneditable-input {
       border-bottom: 1px solid $grayLighter;
     }
   }
+}
+
+/* 滚动墙*/
+.navbar-wrapper {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10;
+    width:20px;
+    height:40px;
+    margin-top: 20px;
+    margin-bottom: -90px;
+}
+ul{
+  list-style:none;
 }
 
 

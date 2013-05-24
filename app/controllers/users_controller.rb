@@ -47,7 +47,8 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+    @user=User.new(name:params[:name],password:params[:password],
+                  email:params[:email],password_confirmation:params[:password_confirmation])
 
     respond_to do |format|
       if @user.save
@@ -61,6 +62,8 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+ 
 
   # PUT /users/1
   # PUT /users/1.json
