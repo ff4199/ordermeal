@@ -1,12 +1,16 @@
 <% provide(:title, 'Home') %>
 <h1><%=yield(:title)%></h1>
-<div class="center hero-unit">
+<div class="row">
+<div class="span8">
+	<div class="center hero-unit">
     <h1>欢迎来到飞毛腿订餐</h1>
-
-    <h2>
-      
-    </h2>
-
-    <%= link_to "注册新用户", signup_path,
-                                class: "btn btn-large btn-primary" %>
-  </div>
+	</div>
+</div>
+<div class="span4">
+	<div class="center hero-unit">
+	<%= link_to "注册新用户", signup_path,
+                                class: "btn btn-samll btn-primary" %>
+    </div>
+</div>
+</div>
+  
