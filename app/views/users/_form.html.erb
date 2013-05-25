@@ -8,22 +8,43 @@
 </div>
 
 <div class="modal-body">
+	<div class="span3">
 	<%=form_tag('/users')%>
 		<%=label_tag "姓名"%>
-		<%=text_field_tag :name,params[:name]%>
+		<%=text_field_tag :name,params[:name],placeholder:"请输入您的大名"%>
 		
-		<%=label_tag "邮箱"%>
-		<%=text_field_tag :email,params[:email]%>
+		<%=label_tag "登录邮箱"%>
+		<%=text_field_tag :email,params[:email],placeholder:"example@163.com"%>
 		
 		<%=label_tag "密码"%>
-		<%=password_field_tag :password,params[:password]%>
+		<%=password_field_tag :password,params[:password],placeholder:"密码至少六位"%>
 		
 		<%=label_tag "确认密码"%>
-		<%=password_field_tag :password_confirmation,params[:password_confirmation]%>
+		<%=password_field_tag :password_confirmation,params[:password_confirmation],placeholder:"请再次输入确认"%>		
+		<%=label_tag "手机"%>
+		<%=text_field_tag :tel,params[:tel],placeholder:18392130959,maxlength:11%>
+	</div>	
+	<div class="span3">
+		<%=label_tag "楼号"%>
+		<%=select_tag :louhao,options_for_select({"12#"=>"12#","13#"=>"13#"})%>
 		
-	<%=submit_tag "提交"%>
+		<%=label_tag "区号"%>
+		<%=select_tag :jiqu,options_for_select({"I"=>"I","II"=>"II"})%>
+
+		<%=label_tag "房间"%>
+		<%=text_field_tag :fangjian,params[:fangjian],placeholder:218%>
+		
+		<%=label_tag "小室"%>
+		<%=select_tag :zuoyou,options_for_select({"左"=>"左","中"=>"中","右"=>"右"})%>
+	
+	</div>
+	<div class="span1 offset1">
+		<%=submit_tag "提交"%>
+	</div>
+
 </div>
 <div class="modal-footer">
+	
 <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
 </div>
 </div>

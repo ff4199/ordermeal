@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @orderlist.user_id %>
+</p>
+
+<p>
+  <b>Taste:</b>
+  <%= @orderlist.taste %>
+</p>
+
+<p>
+  <b>Count:</b>
+  <%= @orderlist.count %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @orderlist.price %>
+</p>
+
+<p>
+  <b>Hotel:</b>
+  <%= @orderlist.hotel %>
+</p>
+
+
+<%= link_to 'Edit', edit_orderlist_path(@orderlist) %> |
+<%= link_to 'Back', orderlists_path %>

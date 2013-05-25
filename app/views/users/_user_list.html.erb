@@ -1,0 +1,7 @@
+<div class="span8">
+    <% if @user.orderlists.any? %>
+      <h3>用户订单 (<%= @user.orderlists.count %>)</h3>
+      <%=render "/orderlists/all_list"%>
+      <%= will_paginate @orderlists %>
+    <% end %>
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  taste: MyString
+  count: 1
+  price: 9.99
+  hotel: MyString
+
+two:
+  user_id: 1
+  taste: MyString
+  count: 1
+  price: 9.99
+  hotel: MyString

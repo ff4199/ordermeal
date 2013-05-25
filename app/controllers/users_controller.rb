@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @orderlists = @user.orderlists.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -47,14 +48,16 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user=User.new(name:params[:name],password:params[:password],
-                  email:params[:email],password_confirmation:params[:password_confirmation])
+    @user=User.new(name:params[:name],password:params[:password],tel:params[:tel],
+                  email:params[:email],password_confirmation:params[:password_confirmation],
+                  louhao:params[:louhao],jiqu:params[:jiqu],fangjian:params[:fangjian],
+                  zuoyou:params[:zuoyou])
 
     respond_to do |format|
       if @user.save
         sign_in @user
         flash[:success] = "欢迎登录"
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: '用户创建成功.' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }

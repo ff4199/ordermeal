@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130524101556) do
+ActiveRecord::Schema.define(:version => 20130525121439) do
+
+  create_table "orderlists", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "taste"
+    t.integer  "count"
+    t.decimal  "price"
+    t.string   "hotel"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "orderlists", ["user_id", "created_at"], :name => "index_orderlists_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "email"
@@ -21,6 +33,11 @@ ActiveRecord::Schema.define(:version => 20130524101556) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           :default => false
+    t.integer  "tel"
+    t.string   "louhao"
+    t.string   "jiqu"
+    t.string   "fangjian"
+    t.string   "zuoyou"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

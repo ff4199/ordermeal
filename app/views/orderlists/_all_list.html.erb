@@ -1,0 +1,32 @@
+<h1>Listing orderlists</h1>
+
+<%= will_paginate @orderlists %>
+<table>
+  <tr>
+    <th>User</th>
+    <th>Taste</th>
+    <th>Count</th>
+    <th>Price</th>
+    <th>Hotel</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @orderlists.each do |orderlist| %>
+  <tr>
+    <td><%= orderlist.user_id %></td>
+    <td><%= orderlist.taste %></td>
+    <td><%= orderlist.count %></td>
+    <td><%= orderlist.price %></td>
+    <td><%= orderlist.hotel %></td>
+    <td><%= link_to 'Show', orderlist %></td>
+    <td><%= link_to 'Edit', edit_orderlist_path(orderlist) %></td>
+    <td><%= link_to 'Destroy', orderlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @orderlists %>
+<br />
+
+<%= link_to 'New Orderlist', new_orderlist_path %>

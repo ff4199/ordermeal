@@ -1,8 +1,11 @@
 Ordermeal::Application.routes.draw do
+  resources :orderlists
+
+  # 管理员界面路径
+  match '/users/1', to: 'users#admin_show'
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
-  
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete

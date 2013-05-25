@@ -3,15 +3,26 @@
 <%= will_paginate %>
 <table class="table table-bordered table-hover table-condensed">
   <tr>
-    <th>Email</th>
+    <th>姓名</th>
+    <th>邮箱</th>
+    <th>电话</th>
+    <th colspan="4" >&nbsp;&nbsp;&nbsp;&nbsp;宿舍</th>
     <th></th>
     <th></th>
     <th></th>
+    
   </tr>
 
 <% @users.each do |user| %>
   <tr>
+    <td><%= user.name %></td>
     <td><%= user.email %></td>
+    <td><%= user.tel %></td>
+    <td><%= user.louhao %></td>
+    <td><%= user.jiqu %></td>
+    <td><%= user.fangjian %></td>
+    <td><%= user.zuoyou %></td>
+    
     <td><%= link_to '查看', user %></td>
     <td><%= link_to '编辑', edit_user_path(user) %></td>
     <td><%= link_to '删除', user, method: :delete, data: { confirm: '确定删除吗?' } %></td>
